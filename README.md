@@ -1,6 +1,6 @@
 Welcome to the MoviesMicroService wiki!
 
-![Architecture](https://photos.app.goo.gl/qjCtjVNk57RNYoWM8)
+Architecture - ReactWebapp -> APIM -> Azure Functions (MicroServices) -> Azure Cosmos DB
  
 Steps 
 1.Run the Backend MoviesMicroService  separately
