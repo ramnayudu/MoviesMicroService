@@ -4,6 +4,7 @@ Architecture - ReactWebapp -> APIM -> Azure Functions (MicroServices) -> Azure C
  
 Steps 
 1.Run the Backend MoviesMicroService  separately
+
 2.Run the frontend folder separately
 
 Note:
