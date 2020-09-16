@@ -13,6 +13,20 @@ class Movies extends React.Component {
     }
   }
   
+  componentDidMount() {
+    const apiUrl = 'http://localhost:7071/api/Function1';
+    axios.get(apiUrl).then((data)=>{
+      console.log(data.data);
+      this.setState({data : data.data});
+   
+    }).catch((error) => {
+      console.log(error);
+    });
+
+    
+  }
+
+  
   render() {
 
     const columns = [
