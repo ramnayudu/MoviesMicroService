@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using Microsoft.Azure.Cosmos;
 using MoviesMicroService.Models;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace MoviesMicroService
 {
@@ -36,6 +37,32 @@ namespace MoviesMicroService
             }
             catch (Exception e)
             {
+                log.LogInformation(" Exception while executing Movie function ");
+                return new BadRequestResult();
+            }
+        }
+
+        [FunctionName("GetMovieById")]
+        public async Task<IActionResult> GetMovieById(
+         [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
+         ILogger log)
+        {
+            try
+            {
+                log.LogInformation("Movie function started execution");
+                string id = req.Query["id"];
+                Movie movie = movieContainer.GetItemLinqQueryable<Movie>(true)
+                      .Where(b => b.imdbID == id)
+                      .AsEnumerable()
+                      .FirstOrDefault();
+                List<Movie> movies = new List<Movie>();
+                movies.Add(movie);
+
+                return new OkObjectResult(movie);
+            }
+            catch (Exception e)
+            {
+
                 log.LogInformation(" Exception while executing Movie function ");
                 return new BadRequestResult();
             }
