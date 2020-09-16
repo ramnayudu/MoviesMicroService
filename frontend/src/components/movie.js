@@ -11,6 +11,18 @@ class Movie extends Component {
       data: [],
     }
   }
+
+  componentDidMount() {
+    const apiUrl = 'http://localhost:7071/api/Function2?id='+this.props.location.state;
+    axios.get(apiUrl).then((data)=>{
+      console.log(data.data);
+      this.setState({data : data.data});
+
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+  
   render() {
 
     const columns = [
