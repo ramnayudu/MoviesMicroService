@@ -14,7 +14,7 @@ class Movies extends React.Component {
   }
   
   componentDidMount() {
-    const apiUrl = 'http://localhost:7071/api/Function1';
+    const apiUrl = 'https://moviesapim.azure-api.net/moviesbooking/GetMovies';
     axios.get(apiUrl).then((data)=>{
       console.log(data.data);
       this.setState({data : data.data});
@@ -26,7 +26,7 @@ class Movies extends React.Component {
     
   }
 
-  
+
   render() {
 
     const columns = [

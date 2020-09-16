@@ -13,7 +13,7 @@ class Movie extends Component {
   }
 
   componentDidMount() {
-    const apiUrl = 'http://localhost:7071/api/Function2?id='+this.props.location.state;
+    const apiUrl = 'https://moviesapim.azure-api.net/moviesbooking/GetMovieById?id='+this.props.location.state;
     axios.get(apiUrl).then((data)=>{
       console.log(data.data);
       this.setState({data : data.data});
@@ -22,7 +22,7 @@ class Movie extends Component {
       console.log(error);
     });
   }
-  
+
   render() {
 
     const columns = [

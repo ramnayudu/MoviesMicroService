@@ -6,7 +6,6 @@ import * as serviceWorker from './serviceWorker';
 import Movies from './components/movies';
 import Movie from './components/movie';
 import { Route, Link, BrowserRouter } from 'react-router-dom'
-import Sample from './components/sample';
 
 const routs = (
   < BrowserRouter >
