@@ -7,13 +7,21 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Microsoft.Azure.Cosmos;
 
 namespace MoviesMicroService
 {
-    public static class Function1
+    public class MovieFunction
     {
+        private readonly Container movieContainer;
+
+        public MovieFunction(Container movieContainer)
+        {
+            this.movieContainer = movieContainer;
+        }
+
         [FunctionName("Function1")]
-        public static async Task<IActionResult> Run(
+        public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
