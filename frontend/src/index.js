@@ -9,7 +9,7 @@ import { Route, Link, BrowserRouter } from 'react-router-dom'
 
 const routs = (
   < BrowserRouter >
-        <Route exact path="/movies" component={Movies} />
+        <Route exact path="/" component={Movies} />
         <Route exact path="/movie" component={Movie} />
   </ BrowserRouter >
 );
