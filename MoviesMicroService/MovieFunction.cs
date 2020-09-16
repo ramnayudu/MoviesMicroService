@@ -58,7 +58,7 @@ namespace MoviesMicroService
                 List<Movie> movies = new List<Movie>();
                 movies.Add(movie);
 
-                return new OkObjectResult(movie);
+                return new OkObjectResult(movies);
             }
             catch (Exception e)
             {
